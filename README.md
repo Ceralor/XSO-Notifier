@@ -14,4 +14,4 @@ notify:
     title_param_name: title
 ```
 
-Combine this with something like @LAB02-Research/HASS.Agent in order to detect if `SteamVR.exe` is running and you can selectively target destinations for a notification, so that when you're in VR it'll only send to XS Overlay, and vice versa.
+Combine this with something like [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent) in order to detect if `SteamVR.exe` is running and you can selectively target destinations for a notification, so that when you're in VR it'll only send to XS Overlay, and vice versa.
