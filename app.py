@@ -1,10 +1,15 @@
 import logging
-from lib.xso import XSOMessage, XSOWarning, XSOError, XSOMessageSender
+from xso import XSOMessage, XSOWarning, XSOError, XSOMessageSender
 from flask import Flask, request
+
+## If you are running this via wsgi or another Flask app runner,
+## make sure you have it available on IP 0.0.0.0. Additionally,
+## this MUST run on the same host that XS Overlay is running on.
+## That is, it must be running within Windows, not via WSL.
+
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger("VR")
 app = Flask(__name__)
-
 xs = XSOMessageSender()
 
 @app.route('/vr_notify', methods=['GET','POST'])
@@ -36,5 +41,6 @@ def vr_warning():
 @app.route('/vr_error', methods=['GET','POST'])
 def vr_error():
     return vr_notify(type="error")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port="64209")
