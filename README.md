@@ -1,5 +1,4 @@
 # XSO-Notifier
-Simple Flask app for sending notifications to XS Overlay
 
 To run this application, either install Flask to a virtual environment/conda/etc, or to the user/host Python, and either `flask run --host 0.0.0.0` or `python app.py`. The latter will default to port 64029, a spin on XS Overlay's 42069.
 
