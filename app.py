@@ -12,12 +12,11 @@ l = logging.getLogger("VR")
 app = Flask(__name__)
 xs = XSOMessageSender()
 
-@app.route('/vr_notify', methods=['GET','POST'])
+@app.route('/vr_notify', methods=['POST'])
 def vr_notify(type="default"):
     assert type in {'default','error','warning'}
-    title = request.args.get('title', None)
-    content = request.args.get('message','No Message Received')
-    l.info(f"{ request.args.keys() }")
+    title = request.form.get('title', None)
+    content = request.form.get('message','No Message Received')
     if title is None:
         l.info("No title received, setting title to message value")
         title = content[:]
